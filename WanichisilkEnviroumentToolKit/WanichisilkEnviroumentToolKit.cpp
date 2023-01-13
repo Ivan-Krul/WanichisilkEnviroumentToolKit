@@ -1,6 +1,10 @@
 #include <iostream>
 
+#include "Hardware.h"
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	auto h = hardware_envi_lib::Hardware::GetInstance();
+
+	std::cout << "Hello World!\n";
 }
