@@ -33,11 +33,13 @@ namespace hardware_envi_lib
 
 		// Singleton pattern
 		static Hardware s_Instance;
+		Compacter comp;
 		Hardware() = default;
 	public:
 		void Write(const std::string directory);
 		void Read(const std::string directory);
 		bool CanBeFileOpen(const std::string directory);
+		Compacter GetCompacter();
 
 		// Singleton pattern
 		static Hardware& GetInstance()

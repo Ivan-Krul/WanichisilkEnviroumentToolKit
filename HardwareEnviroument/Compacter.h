@@ -31,6 +31,7 @@ namespace hardware_envi_lib
 		std::list<float_var> m_Variables;
 
 		uint8_t f_SizeOf(const DateType data_type);
+		std::list<float_var>::const_iterator f_GetFromIndex(const size_t index) const;
 		std::list<float_var>::const_iterator f_GetVar(const std::string str_index) const;
 	public:
 		void PushVariable(const DateType date_type, const std::string name, const char* p_ref);
@@ -53,6 +54,9 @@ namespace hardware_envi_lib
 		float ConvertToFloat(const std::string str_index) const;
 		double ConvertToDouble(const std::string str_index) const;
 		size_t ConvertToSize(const std::string str_index) const;
+
+		std::string GetProperties(const size_t index);
+		std::string GetProperties(const std::string str_index);
 
 		void PopVariable(const std::string str_index);
 	};

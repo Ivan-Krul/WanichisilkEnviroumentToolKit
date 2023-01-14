@@ -24,6 +24,17 @@ namespace hardware_envi_lib
 				return 0xff;
 		}
 	}
+	std::list<float_var>::const_iterator Compacter::f_GetFromIndex(const size_t index) const
+	{
+		size_t i = 0;
+		for (auto iter = Begin(); iter != End(); iter++)
+		{
+			if (i == index)
+				return iter;
+			i++;
+		}
+		return std::list<float_var>::const_iterator();
+	}
 	std::list<float_var>::const_iterator Compacter::f_GetVar(const std::string str_index) const
 	{
 		auto comp = [=](const float_var& fv) {return fv.name == str_index; };
@@ -142,6 +153,64 @@ namespace hardware_envi_lib
 		if (elem->date_type != DateType::size_ && elem->binary.size() != sizeof(size_t))
 			return size_t();
 		return *reinterpret_cast<size_t*>(const_cast<char*>(elem->binary.c_str()));
+	}
+
+	std::string Compacter::GetProperties(const size_t index)
+	{
+		if (!(index < Size()))
+			return std::string();
+		const auto var = f_GetFromIndex(index);
+		auto str = " " + var->name + ": ";
+
+		switch (var->date_type)
+		{
+			case DateType::dobl_:
+				return "dobl" + str + std::to_string(ConvertToDouble(var->name));
+			case DateType::size_:
+				return "size" + str + std::to_string(ConvertToSize(var->name));
+			case DateType::flot_:
+				return "flot" + str + std::to_string(ConvertToFloat(var->name));
+			case DateType::uint_:
+				return "uint" + str + std::to_string(ConvertToUInt(var->name));
+			case DateType::int__:
+				return "int_" + str + std::to_string(ConvertToInt(var->name));
+			case DateType::shrt_:
+				return "shrt" + str + std::to_string(ConvertToShort(var->name));
+			case DateType::char_:
+				return "char" + str + ConvertToChar(var->name);
+			case DateType::bool_:
+				return "bool" + str + std::to_string(ConvertToBool(var->name));
+			default:
+				return "str_" + str + var->binary;
+		}
+	}
+
+	std::string Compacter::GetProperties(const std::string str_index)
+	{
+		const auto var = f_GetVar(str_index);
+		auto str = " " + var->name + ": ";
+
+		switch (var->date_type)
+		{
+			case DateType::dobl_:
+				return "dobl" + str + std::to_string(ConvertToDouble(var->name));
+			case DateType::size_:
+				return "size" + str + std::to_string(ConvertToSize(var->name));
+			case DateType::flot_:
+				return "flot" + str + std::to_string(ConvertToFloat(var->name));
+			case DateType::uint_:
+				return "uint" + str + std::to_string(ConvertToUInt(var->name));
+			case DateType::int__:
+				return "int_" + str + std::to_string(ConvertToInt(var->name));
+			case DateType::shrt_:
+				return "shrt" + str + std::to_string(ConvertToShort(var->name));
+			case DateType::char_:
+				return "char" + str + ConvertToChar(var->name);
+			case DateType::bool_:
+				return "bool" + str + std::to_string(ConvertToBool(var->name));
+			default:
+				return "str_" + str + var->binary;
+		}
 	}
 
 	void Compacter::PopVariable(const std::string str_index)
