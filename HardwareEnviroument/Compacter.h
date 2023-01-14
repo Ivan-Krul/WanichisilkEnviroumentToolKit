@@ -30,7 +30,8 @@ namespace hardware_envi_lib
 	{
 		std::list<float_var> m_Variables;
 
-		float_var& f_GetVar(const std::string str_index) const;
+		uint8_t f_SizeOf(const DateType data_type);
+		std::list<float_var>::const_iterator f_GetVar(const std::string str_index) const;
 	public:
 		void PushVariable(const DateType date_type, const std::string name, const char* p_ref);
 
