@@ -27,7 +27,7 @@ namespace hardware_envi_lib
 	std::list<float_var>::const_iterator Compacter::f_GetFromIndex(const size_t index) const
 	{
 		size_t i = 0;
-		for (auto iter = Begin(); iter != End(); iter++)
+		for (auto iter = begin(); iter != end(); iter++)
 		{
 			if (i == index)
 				return iter;
@@ -56,19 +56,24 @@ namespace hardware_envi_lib
 		m_Variables.push_back(fl_var);
 	}
 
-	size_t Compacter::Size() const
+	size_t Compacter::size() const
 	{
 		return m_Variables.size();
 	}
 
-	std::list<float_var>::const_iterator Compacter::Begin() const
+	std::list<float_var>::const_iterator Compacter::begin() const
 	{
 		return m_Variables.begin();
 	}
 
-	std::list<float_var>::const_iterator Compacter::End() const
+	std::list<float_var>::const_iterator Compacter::end() const
 	{
 		return m_Variables.end();
+	}
+
+	void Compacter::clear()
+	{
+		m_Variables.clear();
 	}
 
 	const std::string Compacter::NameOfVariable(size_t index) const
@@ -157,7 +162,7 @@ namespace hardware_envi_lib
 
 	std::string Compacter::GetProperties(const size_t index)
 	{
-		if (!(index < Size()))
+		if (!(index < size()))
 			return std::string();
 		const auto var = f_GetFromIndex(index);
 		auto str = " " + var->name + ": ";

@@ -18,7 +18,7 @@ namespace hardware_envi_lib
 
 	class Hardware
 	{
-		const std::vector<datatype> scm_DataTypes =
+		const std::vector<datatype> c_DataTypes =
 		{
 			{"str_", 's', DateType::str__},
 			{"int_", 'i', DateType::int__},
@@ -31,15 +31,25 @@ namespace hardware_envi_lib
 			{"size", 'z', DateType::size_}
 		};
 
+		Compacter m_Compacter;
+		
+		void f_WriteInFileSize(std::ofstream& fs, size_t size);
+		void f_WriteInFileString(std::ofstream& fs, const std::string str);
+		datatype f_FindFromDataTypes(const DateType date_type);
+		datatype f_FindFromDataTypes(const char bin);
+
+		size_t f_ReadFromFileSize(std::ifstream& fs);
+		std::string f_ReadFromFileString(std::ifstream& fs);
+
+
 		// Singleton pattern
 		static Hardware s_Instance;
-		Compacter comp;
 		Hardware() = default;
 	public:
 		void Write(const std::string directory);
 		void Read(const std::string directory);
 		bool CanBeFileOpen(const std::string directory);
-		Compacter GetCompacter();
+		Compacter& GetCompacter();
 
 		// Singleton pattern
 		static Hardware& GetInstance()
@@ -48,5 +58,5 @@ namespace hardware_envi_lib
 		}
 	};
 
-	Hardware Hardware::s_Instance;
+	// Hardware Hardware::s_Instance;
 }

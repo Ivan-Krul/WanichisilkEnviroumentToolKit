@@ -36,10 +36,12 @@ namespace hardware_envi_lib
 	public:
 		void PushVariable(const DateType date_type, const std::string name, const char* p_ref);
 
-		size_t Size() const;
+		size_t size() const;
 		
-		std::list<float_var>::const_iterator Begin() const;
-		std::list<float_var>::const_iterator End() const;
+		std::list<float_var>::const_iterator begin() const;
+		std::list<float_var>::const_iterator end() const;
+
+		void clear();
 
 		const std::string NameOfVariable(size_t index) const;
 
