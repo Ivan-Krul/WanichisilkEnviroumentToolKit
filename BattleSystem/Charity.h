@@ -10,8 +10,11 @@ namespace battle_system_lib
 		std::string m_Name;
 		uint16_t m_MaxProductivity;
 		uint16_t m_MaxForce;
+
+	protected:
 		int16_t m_Productivity;
 		int16_t m_Force;
+
 	public:
 		Charity(const std::string name, const uint16_t max_productivity, const uint16_t max_force);
 		
@@ -27,7 +30,7 @@ namespace battle_system_lib
 		void ChangeProductivity(const int16_t delta_productivity);
 		void ChangeForce(const int16_t delta_force);
 
-
+		// TODO: made a inventory
 
 		~Charity();
 	};
