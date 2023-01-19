@@ -2,19 +2,15 @@
 
 #include "Hardware.h"
 
+#include "Charity.h"
+
 int main()
-{
-	auto h = hardware_envi_lib::Hardware::GetInstance();
-	
-	h.Read("compacter_test.dat");
+{	
+	auto p = battle_system_lib::Charity("Pawn", 10, 5);
+	auto r = battle_system_lib::Charity("Rook", 21, 9);
 
-	std::cout << h.GetCompacter().GetProperties("kuger") << '\n';
-	std::cout << h.GetCompacter().GetProperties("string") << '\n';
-
-	//auto a = 0x10101010;
-	//auto b = "Hello";
-
-	//h.GetCompacter().PushVariable(hardware_envi_lib::DateType::uint_, "kuger", reinterpret_cast<char*>(&a));
-	//h.GetCompacter().PushVariable(hardware_envi_lib::DateType::str__, "string", b);
-	//h.Write("compacter_test.dat");
+	std::cout << "Count: " << p.GetCount() << '\n';
+	std::cout << p.GetName() << '\n';
+	std::cout << p.GetForce() << " / " << p.GetMaxForce() << '\n';
+	std::cout << p.GetProductivity() << " / " << p.GetProductivity() << '\n';
 }

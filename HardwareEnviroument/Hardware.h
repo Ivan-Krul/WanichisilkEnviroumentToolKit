@@ -50,6 +50,7 @@ namespace hardware_envi_lib
 		void Read(const std::string directory);
 		bool CanBeFileOpen(const std::string directory);
 		Compacter& GetCompacter();
+		void WriteAbortLine(const std::string where, const std::string message);
 
 		// Singleton pattern
 		static Hardware& GetInstance()

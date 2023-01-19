@@ -124,5 +124,14 @@ Structure:
 		return m_Compacter;
 	}
 
+	void Hardware::WriteAbortLine(const std::string where, const std::string message)
+	{
+		auto writer = std::ofstream(message);
+		
+		writer.seekp(0, std::ios_base::end);
+		writer << "ERROR: " << where << ": " << message << '\n';
+		writer.close();
+	}
+
 	Hardware Hardware::s_Instance;
 }
