@@ -1,14 +1,10 @@
 #pragma once
 #include <string>
 
+#include "ItemEnumClass.h"
+
 namespace battle_system_lib
 {
-	enum class ItemType
-	{
-		common,
-		eatable // TODO: made more types of item, such as "ItemArmor" or "ItemWeapon"
-	};
-
 	class Item // parent class
 	{
 		ItemType m_ItemType;
