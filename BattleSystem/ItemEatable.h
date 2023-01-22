@@ -15,7 +15,7 @@ namespace battle_system_lib
 		int16_t m_Benefit = 0;
 
 	public:
-		ItemEatable(std::string name, std::string description, int16_t benefit, uint16_t duration_of_digestion);
+		ItemEatable(const std::string name, const std::string description, const int16_t benefit, const uint16_t duration_of_digestion, const uint16_t size);
 
 		const int16_t GetBenefit() const;
 		const uint16_t GetDurationOfDigestion() const;

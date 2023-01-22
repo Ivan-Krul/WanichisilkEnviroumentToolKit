@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <string>
+
 namespace battle_system_lib
 {
 	class Charity

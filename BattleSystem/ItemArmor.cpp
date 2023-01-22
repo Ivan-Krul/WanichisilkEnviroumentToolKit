@@ -2,8 +2,8 @@
 
 namespace battle_system_lib
 {
-	ItemArmor::ItemArmor(const std::string name, const std::string description, const int16_t armor_coef)
-		: Item(name, description, ItemType::armor)
+	ItemArmor::ItemArmor(const std::string name, const std::string description, const int16_t armor_coef, const uint16_t size)
+		: Item(name, description, size, ItemType::armor)
 	{
 		m_ArmorCoef = armor_coef;
 	}
@@ -13,6 +13,6 @@ namespace battle_system_lib
 	}
 	const std::string ItemArmor::GetDescription() const
 	{
-		return "(armor coef " + std::to_string(m_ArmorCoef) + ") " + m_Description;
+		return "(armor coef " + std::to_string(m_ArmorCoef) + ") " + m_Description + DescriptSize();
 	}
 }

@@ -137,6 +137,8 @@
     <ClInclude Include="ItemArmor.h" />
     <ClInclude Include="ItemEatable.h" />
     <ClInclude Include="ItemEnumClass.h" />
+    <ClInclude Include="ItemMeleeWeapon.h" />
+    <ClInclude Include="ItemShootableWepon.h" />
     <ClInclude Include="ItemWeapon.h" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +147,8 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemArmor.cpp" />
     <ClCompile Include="ItemEatable.cpp" />
+    <ClCompile Include="ItemMeleeWeapon.cpp" />
+    <ClCompile Include="ItemShootableWepon.cpp" />
     <ClCompile Include="ItemWeapon.cpp" />
   </ItemGroup>
   <ItemGroup>
