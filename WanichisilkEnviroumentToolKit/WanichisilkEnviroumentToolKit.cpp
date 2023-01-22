@@ -2,6 +2,7 @@
 
 #include "Hardware.h"
 
+#include "ItemMeleeWeapon.h"
 #include "Charity.h"
 
 int main()

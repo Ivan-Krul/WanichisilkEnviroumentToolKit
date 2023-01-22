@@ -8,7 +8,7 @@ namespace battle_system_lib
 		eatable,
 		armor,
 		shootable_weapon,
-		melee_weapon, // TODO: made more types of item, such as "ItemArmor" or "ItemWeapon"
+		melee_weapon,
 		damagable_potion,
 		upgradable_potion,
 		heal_potion

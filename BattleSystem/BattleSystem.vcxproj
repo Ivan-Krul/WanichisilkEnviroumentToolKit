@@ -135,21 +135,21 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemArmor.h" />
+    <ClInclude Include="ItemDamagablePotion.h" />
     <ClInclude Include="ItemEatable.h" />
     <ClInclude Include="ItemEnumClass.h" />
+    <ClInclude Include="ItemHealPotion.h" />
     <ClInclude Include="ItemMeleeWeapon.h" />
+    <ClInclude Include="ItemPotion.h" />
     <ClInclude Include="ItemShootableWepon.h" />
+    <ClInclude Include="ItemUpgradablePotion.h" />
     <ClInclude Include="ItemWeapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Charity.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemArmor.cpp" />
-    <ClCompile Include="ItemEatable.cpp" />
-    <ClCompile Include="ItemMeleeWeapon.cpp" />
-    <ClCompile Include="ItemShootableWepon.cpp" />
-    <ClCompile Include="ItemWeapon.cpp" />
+    <ClCompile Include="ItemUpgradablePotion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HardwareEnviroument\HardwareEnviroument.vcxproj">
