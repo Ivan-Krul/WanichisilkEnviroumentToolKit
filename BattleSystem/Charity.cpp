@@ -4,28 +4,18 @@
 
 namespace battle_system_lib
 {
-	Charity::Charity(const std::string name, const uint16_t max_productivity, const uint16_t max_force)
+	Charity::Charity(const std::string name, const uint16_t max_productivity, const uint16_t max_force, const Dimension dimension)
 	{
+		s_Count.Increment();
 		m_Name = name;
 		m_Productivity = m_MaxProductivity = max_productivity;
 		m_Force = m_MaxForce = max_force;
-
-		if(s_Count != 0xffff)
-			s_Count++;
-		else
-		{
-			auto h = hardware_envi_lib::Hardware::GetInstance();
-
-			h.WriteAbortLine(__FUNCTION__, "variable s_Count is overflow, too much objects for uint16_t");
-
-			abort();
-		}
-
+		m_Dimension = dimension;
 	}
 
 	const uint16_t Charity::GetCount() const
 	{
-		return s_Count;
+		return s_Count.GetCount();
 	}
 
 	const uint16_t Charity::GetMaxProductivity() const
@@ -53,6 +43,11 @@ namespace battle_system_lib
 		return m_Name;
 	}
 
+	const Dimension Charity::GetDimension() const
+	{
+		return m_Dimension;
+	}
+
 	void Charity::SetProductivity(const int16_t new_productivity)
 	{
 		m_Productivity = new_productivity;
@@ -75,10 +70,15 @@ namespace battle_system_lib
 			m_Force += delta_force;
 	}
 
-	Charity::~Charity()
+	Inventory& Charity::GetInventoryInstance()
 	{
-		s_Count--;
+		return m_Inventory;
 	}
 
-	uint16_t Charity::s_Count = 0;
+	Charity::~Charity()
+	{
+		s_Count.Decrement();
+	}
+
+	Count Charity::s_Count;
 }

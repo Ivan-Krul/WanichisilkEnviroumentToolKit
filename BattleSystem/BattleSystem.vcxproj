@@ -132,6 +132,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Charity.h" />
+    <ClInclude Include="Count.h" />
+    <ClInclude Include="Dimension.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemArmor.h" />
@@ -139,6 +141,7 @@
     <ClInclude Include="ItemEatable.h" />
     <ClInclude Include="ItemEnumClass.h" />
     <ClInclude Include="ItemHealPotion.h" />
+    <ClInclude Include="ItemLib.h" />
     <ClInclude Include="ItemMeleeWeapon.h" />
     <ClInclude Include="ItemPotion.h" />
     <ClInclude Include="ItemShootableWepon.h" />
@@ -147,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Charity.cpp" />
+    <ClCompile Include="Dimension.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemUpgradablePotion.cpp" />

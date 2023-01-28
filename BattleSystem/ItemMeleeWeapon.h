@@ -39,7 +39,7 @@ namespace battle_system_lib
 			+ std::to_string(m_ForceCoef)
 			+ ", length "
 			+ std::to_string(m_Length)
-			+ ", weight"
+			+ ", weight "
 			+ std::to_string(m_Weight)
 			+ ") "
 			+ m_Description

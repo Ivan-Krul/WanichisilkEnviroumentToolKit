@@ -46,6 +46,7 @@ namespace hardware_envi_lib
 		const std::string NameOfVariable(size_t index) const;
 
 		const std::string operator[](const std::string str_index) const;
+		const std::string operator[](const size_t index) const;
 		const DateType GetDataType(const std::string str_index) const;
 
 		bool ConvertToBool(const std::string str_index) const;

@@ -92,6 +92,11 @@ namespace hardware_envi_lib
 		return f_GetVar(str_index)->binary;
 	}
 
+	const std::string Compacter::operator[](const size_t index) const
+	{
+		return f_GetFromIndex(index)->binary;
+	}
+
 	const DateType Compacter::GetDataType(const std::string str_index) const
 	{
 		return f_GetVar(str_index)->date_type;

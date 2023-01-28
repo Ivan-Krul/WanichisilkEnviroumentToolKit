@@ -1,5 +1,6 @@
 #pragma once
 #include "ItemWeapon.h"
+#include "Dimension.h"
 
 namespace battle_system_lib
 {
@@ -7,32 +8,24 @@ namespace battle_system_lib
 		public ItemWeapon
 	{
 	protected:
-		uint16_t m_MinDimensions;
-		uint16_t m_MaxDimensions;
+		Dimension m_Dimension;
 	public:
-		ItemShootableWepon(const std::string name, const std::string description, const int16_t force, const uint16_t min_dimensions, const uint16_t max_dimensions, const uint16_t size);
+		ItemShootableWepon(const std::string name, const std::string description, const int16_t force, const Dimension dimensions, const uint16_t size);
 
-		const uint16_t GetMinDimensions() const;
-		const uint16_t GetMaxDimensions() const;
+		const Dimension GetDimensions() const;
 
 		virtual const std::string GetDescription() const;
 	};
 
-	inline ItemShootableWepon::ItemShootableWepon(const std::string name, const std::string description, const int16_t force, const uint16_t min_dimensions, const uint16_t max_dimensions, const uint16_t size)
+	inline ItemShootableWepon::ItemShootableWepon(const std::string name, const std::string description, const int16_t force, const Dimension dimension, const uint16_t size)
 		: ItemWeapon(name, description, force, ItemType::shootable_weapon, size)
 	{
-		m_MinDimensions = min_dimensions;
-		m_MaxDimensions = max_dimensions;
+		m_Dimension = dimension;
 	}
 
-	inline const uint16_t ItemShootableWepon::GetMinDimensions() const
+	inline const Dimension ItemShootableWepon::GetDimensions() const
 	{
-		return m_MinDimensions;
-	}
-
-	inline const uint16_t ItemShootableWepon::GetMaxDimensions() const
-	{
-		return m_MaxDimensions;
+		return m_Dimension;
 	}
 
 	inline const std::string ItemShootableWepon::GetDescription() const
@@ -40,9 +33,9 @@ namespace battle_system_lib
 		return "(force coef "
 			+ std::to_string(m_ForceCoef)
 			+ ", dismentions "
-			+ std::to_string(m_MinDimensions)
+			+ std::to_string(m_Dimension.min_size)
 			+ " - "
-			+ std::to_string(m_MinDimensions)
+			+ std::to_string(m_Dimension.max_size)
 			+ ") "
 			+ m_Description
 			+ DescriptSize();

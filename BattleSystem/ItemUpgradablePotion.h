@@ -6,7 +6,7 @@ namespace battle_system_lib
 	class ItemUpgradablePotion :
 		public ItemPotion
 	{
-	protected:
+	public:
 		enum UpgradeType
 		{
 			force,
@@ -15,7 +15,7 @@ namespace battle_system_lib
 			armor,
 			dismention
 		};
-
+	protected:
 		UpgradeType m_UpgradeType;
 	public:
 		ItemUpgradablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size, const UpgradeType type);
