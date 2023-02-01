@@ -10,16 +10,17 @@ namespace battle_system_lib
 
 		uint16_t m_Duration;
 	public:
-		ItemPotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size, const ItemType type);
+		ItemPotion(const std::string name, const std::string description, const int16_t effect, const uint16_t duration, const ItemType type, const uint16_t size);
 
 		const int16_t GetEffect() const;
 		const uint16_t GetDuration() const;
 	};
 
-	inline ItemPotion::ItemPotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size, const ItemType type)
+	inline ItemPotion::ItemPotion(const std::string name, const std::string description, const int16_t effect, const uint16_t duration, const ItemType type, const uint16_t size)
 		: Item(name, description, size, type)
 	{
 		m_Effect = effect;
+		m_Duration = duration;
 	}
 	inline const int16_t ItemPotion::GetEffect() const
 	{

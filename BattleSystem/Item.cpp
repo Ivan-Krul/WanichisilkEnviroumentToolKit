@@ -31,6 +31,11 @@ namespace battle_system_lib
 		return m_Description + DescriptSize();
 	}
 
+	const std::string Item::GetRawDescription() const
+	{
+		return m_Description;
+	}
+
 	const uint16_t Item::GetSize() const
 	{
 		return m_Size;

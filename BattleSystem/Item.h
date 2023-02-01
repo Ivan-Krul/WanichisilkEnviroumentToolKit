@@ -27,6 +27,8 @@ namespace battle_system_lib
 		const std::string GetName() const;
 		const uint16_t GetSize() const;
 
+		const std::string GetRawDescription() const;
+
 		virtual const std::string GetDescription() const = 0;
 
 		virtual ~Item();

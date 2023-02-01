@@ -7,13 +7,13 @@ namespace battle_system_lib
 		public ItemPotion
 	{
 	public:
-		ItemDamagablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size);
+		ItemDamagablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t duration, const uint16_t size);
 
 		virtual const std::string GetDescription() const;
 	};
 
-	inline ItemDamagablePotion::ItemDamagablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size)
-		: ItemPotion(name, description, effect, size, ItemType::damagable_potion)
+	inline ItemDamagablePotion::ItemDamagablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t duration, const uint16_t size)
+		: ItemPotion(name, description, effect, duration, ItemType::damagable_potion, size)
 	{
 	}
 

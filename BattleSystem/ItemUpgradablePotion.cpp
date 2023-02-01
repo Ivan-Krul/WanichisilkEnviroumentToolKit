@@ -2,8 +2,8 @@
 
 namespace battle_system_lib
 {
-	ItemUpgradablePotion::ItemUpgradablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t size, const UpgradeType type)
-		: ItemPotion(name, description, effect, size, ItemType::upgradable_potion)
+	ItemUpgradablePotion::ItemUpgradablePotion(const std::string name, const std::string description, const int16_t effect, const uint16_t duration, const UpgradeType type, const uint16_t size)
+		: ItemPotion(name, description, effect, duration, ItemType::upgradable_potion, size)
 	{
 		m_UpgradeType = type;
 	}

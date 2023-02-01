@@ -16,7 +16,14 @@ namespace hardware_envi_lib
 		DateType date_type;
 	};
 
-	class Hardware
+	struct IHardware
+	{
+		virtual void Write(const std::string directory) = 0;
+		virtual void Read(const std::string directory) = 0;
+		virtual void WriteAbortLine(const std::string where, const std::string message) = 0;
+	};
+
+	class Hardware : public IHardware
 	{
 		const std::vector<datatype> c_DataTypes =
 		{

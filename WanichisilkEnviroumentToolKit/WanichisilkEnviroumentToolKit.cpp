@@ -7,27 +7,34 @@
 #include "Inventory.h"
 
 int main()
-{	
+{
 	using namespace battle_system_lib;
 
-	auto p = Charity("Pawn", 10, 5, {1,5});
-	auto r = Charity("Rook", 21, 9, {2,6});
+	auto p = Charity("Pawn", 10, 5, { 1,5 });
 
-	std::cout << "Count: " << p.GetCount() << '\n';
-	std::cout << p.GetName() << '\n';
-	std::cout << p.GetForce() << " / " << p.GetMaxForce() << '\n';
-	std::cout << p.GetProductivity() << " / " << p.GetProductivity() << '\n';
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemEatable>("Apple", "from a tree", 6, 4, 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemArmor>("Apple", "from a tree", 4, 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemShootableWeapon>("Apple", "from a tree", 6, Dimension{3,4}, 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemMeleeWeapon>("Apple", "from a tree", 6, 4, 7, 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemDamagablePotion>("Apple", "from a tree", 6, 4, 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemUpgradablePotion>("Apple", "from a tree", 6,  4, ItemUpgradablePotion::UpgradeType(2), 5));
+	//p.GetInventoryInstance().PushItem(std::make_shared<ItemHealPotion>("Apple", "from a tree", 6, 4, 5));
 
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemMeleeWeapon>("Sword", "Make swing", 5, 3, 5, 6));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemEatable>("Banana", "From jungle", 5, 3, 7));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemArmor>("Shield", "From metal", 8, 9));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemDamagablePotion>("Potion of death", "do not touch", 0x7fff, 4));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemHealPotion>("Potion of Blue Tree", "distilisation", 64, 3));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemShootableWepon>("Shotgun", "make boom", 15, Dimension{5 , 8}, 4));
-	p.GetInventoryInstance().PushItem(std::make_shared<ItemUpgradablePotion>("Upgrader", "Upgrade yourself", 6, 3, ItemUpgradablePotion::force));
+	//auto c = ItemCompactor();
 
-	for (const auto i : p.GetInventoryInstance())
-	{
-		std::cout<<i->GetName() << ": " << i->GetDescription() << '\n';
-	}
+	//c.Copy(p.GetInventoryInstance());
+
+	//auto h = hardware_envi_lib::Hardware::GetInstance();
+	//h.GetCompacter() = hardware_envi_lib::Compacter(c.Encrypt());
+	//h.Write("inventory.dat");
+
+	auto h = hardware_envi_lib::Hardware::GetInstance();
+	h.Read("inventory.dat");
+	
+	auto ic = ItemCompactor();
+	ic.Decrypt(h.GetCompacter());
+
+	p.GetInventoryInstance() = ic.Paste();
+	for (auto& i : p.GetInventoryInstance())
+		std::cout << static_cast<int>(i->GetItemType()) << '\n';
 }
