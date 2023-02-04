@@ -30,9 +30,6 @@
     <ClInclude Include="Count.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ItemArmor.h">
       <Filter>Header Files\Item</Filter>
     </ClInclude>
@@ -66,8 +63,11 @@
     <ClInclude Include="ItemWeapon.h">
       <Filter>Header Files\Item</Filter>
     </ClInclude>
-    <ClInclude Include="ItemCompactor.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ItemCompacter.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +83,7 @@
     <ClCompile Include="ItemUpgradablePotion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemCompactor.cpp">
+    <ClCompile Include="ItemCompacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

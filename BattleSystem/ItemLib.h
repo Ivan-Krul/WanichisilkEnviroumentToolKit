@@ -6,4 +6,4 @@
 #include "ItemHealPotion.h"
 #include "ItemMeleeWeapon.h"
 #include "ItemShootableWeapon.h"
-#include "ItemCompactor.h"
+#include "ItemCompacter.h"

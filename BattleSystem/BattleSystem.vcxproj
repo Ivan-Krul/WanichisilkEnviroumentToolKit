@@ -137,7 +137,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemArmor.h" />
-    <ClInclude Include="ItemCompactor.h" />
+    <ClInclude Include="ItemCompacter.h" />
     <ClInclude Include="ItemDamagablePotion.h" />
     <ClInclude Include="ItemEatable.h" />
     <ClInclude Include="ItemEnumClass.h" />
@@ -153,7 +153,7 @@
     <ClCompile Include="Charity.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemCompactor.cpp" />
+    <ClCompile Include="ItemCompacter.cpp" />
     <ClCompile Include="ItemUpgradablePotion.cpp" />
   </ItemGroup>
   <ItemGroup>

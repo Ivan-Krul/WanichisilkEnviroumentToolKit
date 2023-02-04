@@ -2,33 +2,43 @@
 
 namespace battle_system_lib
 {
-	void Inventory::PushItem(std::shared_ptr<Item> item)
+	Inventory::Inventory(uint16_t max_capacity)
 	{
-		m_Items_p.push_back(item);
+		m_MaxCapacity = max_capacity;
+	}
+
+	void Inventory::PushItem(v_Item_p item)
+	{
+		if(m_MaxCapacity != m_Items_p.size())
+			m_Items_p.push_back(item);
 	}
 	const size_t Inventory::size() const
 	{
 		return m_Items_p.size();
 	}
-	std::vector<std::shared_ptr<Item>>::const_iterator Inventory::begin() const
+	const uint16_t Inventory::max_capacity() const
+	{
+		return m_MaxCapacity;
+	}
+	std::vector<v_Item_p>::const_iterator Inventory::begin() const
 	{
 		return m_Items_p.begin();
 	}
-	std::vector<std::shared_ptr<Item>>::const_iterator Inventory::end() const
+	std::vector<v_Item_p>::const_iterator Inventory::end() const
 	{
 		return m_Items_p.end();
 	}
-	const std::shared_ptr<Item> Inventory::operator[](size_t index) const
+	const v_Item_p Inventory::operator[](size_t index) const
 	{
 		return (index < m_Items_p.size())
 			? m_Items_p[index]
-			: std::shared_ptr<Item>();
+			: v_Item_p();
 	}
 	void Inventory::PopItem(size_t index)
 	{
 		m_Items_p.erase(m_Items_p.begin() + index);
 	}
-	void Inventory::PopItem(std::vector<std::shared_ptr<Item>>::const_iterator iter)
+	void Inventory::PopItem(std::vector<v_Item_p>::const_iterator iter)
 	{
 		m_Items_p.erase(iter);
 	}

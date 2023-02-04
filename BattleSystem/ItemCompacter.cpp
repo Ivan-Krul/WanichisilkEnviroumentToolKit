@@ -1,12 +1,12 @@
-#include "ItemCompactor.h"
+#include "ItemCompacter.h"
 
 namespace battle_system_lib
 {
-	void ItemCompactor::f_WriteShort(hardware_envi_lib::Compacter& compacter, const size_t index, const short var, const std::string field) const
+	void ItemCompacter::f_WriteShort(hardware_envi_lib::Compacter& compacter, const size_t index, const short var, const std::string field) const
 	{
 		compacter.PushVariable(hardware_envi_lib::DateType::shrt_, "item::index[" + std::to_string(index) + "]." + field, reinterpret_cast<const char*>(&var));
 	}
-	void ItemCompactor::f_WriteItemBase(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemBase(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		auto bufnum = item_p->GetItemType();
 
@@ -15,51 +15,51 @@ namespace battle_system_lib
 		compacter.PushVariable(hardware_envi_lib::DateType::str__, "item::index[" + std::to_string(index) + "].description", item_p->GetRawDescription().c_str());
 		f_WriteShort(compacter, index, item_p->GetSize(), "size");
 	}
-	void ItemCompactor::f_WriteItemEatable(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemEatable(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemEatable*>(&(*item_p))->GetBenefit(), "benefit");
 		f_WriteShort(compacter, index, static_cast<ItemEatable*>(&(*item_p))->GetDurationOfDigestion(), "duration_of_digestion");
 	}
-	void ItemCompactor::f_WriteItemArmor(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemArmor(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemArmor*>(&(*item_p))->GetArmorCoef(), "armor");
 	}
-	void ItemCompactor::f_WriteItemPoisonHeal(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemPoisonHeal(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemUpgradablePotion*>(&(*item_p))->GetEffect(), "effect");
 		f_WriteShort(compacter, index, static_cast<ItemUpgradablePotion*>(&(*item_p))->GetDuration(), "duration");
 	}
-	void ItemCompactor::f_WriteItemPoisonUpgradable(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemPoisonUpgradable(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemUpgradablePotion*>(&(*item_p))->GetEffect(), "effect");
 		f_WriteShort(compacter, index, static_cast<ItemUpgradablePotion*>(&(*item_p))->GetDuration(), "duration");
 		f_WriteShort(compacter, index, static_cast<ItemUpgradablePotion*>(&(*item_p))->GetUpgradeType(), "upgrade_type");
 	}
-	void ItemCompactor::f_WriteItemPoisonDamagable(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemPoisonDamagable(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemDamagablePotion*>(&(*item_p))->GetEffect(), "effect");
 		f_WriteShort(compacter, index, static_cast<ItemDamagablePotion*>(&(*item_p))->GetDuration(), "duration");
 	}
-	void ItemCompactor::f_WriteItemWeaponShootable(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemWeaponShootable(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemShootableWeapon*>(&(*item_p))->GetForceCoef(), "force_coef");
 		f_WriteShort(compacter, index, static_cast<ItemShootableWeapon*>(&(*item_p))->GetDimensions().min_size, "dimension::min_size");
 		f_WriteShort(compacter, index, static_cast<ItemShootableWeapon*>(&(*item_p))->GetDimensions().max_size, "dimension::max_size");
 	}
-	void ItemCompactor::f_WriteItemWeaponMelee(hardware_envi_lib::Compacter& compacter, const size_t index, const std::shared_ptr<Item> item_p) const
+	void ItemCompacter::f_WriteItemWeaponMelee(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const
 	{
 		f_WriteItemBase(compacter, index, item_p);
 		f_WriteShort(compacter, index, static_cast<ItemMeleeWeapon*>(&(*item_p))->GetForceCoef(), "force_coef");
 		f_WriteShort(compacter, index, static_cast<ItemMeleeWeapon*>(&(*item_p))->GetLength(), "length");
 		f_WriteShort(compacter, index, static_cast<ItemMeleeWeapon*>(&(*item_p))->GetWeight(), "weight");
 	}
-	void ItemCompactor::Decrypt(const hardware_envi_lib::Compacter c)
+	void ItemCompacter::Decrypt(const hardware_envi_lib::Compacter c)
 	{
 		auto item_type = ItemType();
 		auto item_name = std::string();
@@ -119,7 +119,7 @@ namespace battle_system_lib
 		}
 	}
 
-	const hardware_envi_lib::Compacter ItemCompactor::Encrypt() const
+	const hardware_envi_lib::Compacter ItemCompacter::Encrypt() const
 	{
 		auto compacter = hardware_envi_lib::Compacter();
 		auto bufnum = m_Items_p.size();
@@ -162,7 +162,7 @@ namespace battle_system_lib
 		return compacter;
 	}
 
-	void ItemCompactor::Copy(const Inventory& inv)
+	void ItemCompacter::Copy(const Inventory& inv)
 	{
 		if (!m_Items_p.empty())
 			m_Items_p.clear();
@@ -170,9 +170,9 @@ namespace battle_system_lib
 			m_Items_p.push_back(items);
 	}
 
-	Inventory ItemCompactor::Paste() const
+	Inventory ItemCompacter::Paste() const
 	{
-		Inventory i;
+		Inventory i((uint16_t)m_Items_p.size());
 		for (auto& it : m_Items_p)
 			i.PushItem(it);
 		return i;
@@ -180,32 +180,32 @@ namespace battle_system_lib
 
 	// TODO: do the realization of the class
 
-	size_t ItemCompactor::size() const
+	size_t ItemCompacter::size() const
 	{
 		return m_Items_p.size();
 	}
 
-	void ItemCompactor::push(const std::shared_ptr<Item>&& item_p)
+	void ItemCompacter::push(const v_Item_p&& item_p)
 	{
 		m_Items_p.push_back(item_p);
 	}
 
-	void ItemCompactor::pop(const std::list<std::shared_ptr<Item>>::iterator iter)
+	void ItemCompacter::pop(const std::list<v_Item_p>::iterator iter)
 	{
 		m_Items_p.erase(iter);
 	}
 
-	std::list<std::shared_ptr<Item>>::const_iterator ItemCompactor::begin() const
+	std::list<v_Item_p>::const_iterator ItemCompacter::begin() const
 	{
 		return m_Items_p.begin();
 	}
 
-	std::list<std::shared_ptr<Item>>::const_iterator ItemCompactor::end() const
+	std::list<v_Item_p>::const_iterator ItemCompacter::end() const
 	{
 		return m_Items_p.end();
 	}
 
-	void ItemCompactor::clear()
+	void ItemCompacter::clear()
 	{
 		m_Items_p.clear();
 	}

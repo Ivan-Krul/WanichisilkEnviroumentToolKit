@@ -6,19 +6,25 @@
 
 namespace battle_system_lib
 {
+	typedef std::shared_ptr<Item> v_Item_p;
+
 	class Inventory
 	{
-		std::vector<std::shared_ptr<Item>> m_Items_p;
+		uint16_t m_MaxCapacity;
+		std::vector<v_Item_p> m_Items_p;
 	public:
-		void PushItem(std::shared_ptr<Item> item);
+		Inventory(uint16_t max_capacity);
+
+		void PushItem(v_Item_p item);
 		const size_t size() const;
+		const uint16_t max_capacity() const;
 
-		std::vector<std::shared_ptr<Item>>::const_iterator begin() const;
-		std::vector<std::shared_ptr<Item>>::const_iterator end() const;
+		std::vector<v_Item_p>::const_iterator begin() const;
+		std::vector<v_Item_p>::const_iterator end() const;
 
-		const std::shared_ptr<Item> operator[](size_t index) const;
+		const v_Item_p operator[](size_t index) const;
 
 		void PopItem(size_t index);
-		void PopItem(std::vector<std::shared_ptr<Item>>::const_iterator iter);
+		void PopItem(std::vector<v_Item_p>::const_iterator iter);
 	};
 }

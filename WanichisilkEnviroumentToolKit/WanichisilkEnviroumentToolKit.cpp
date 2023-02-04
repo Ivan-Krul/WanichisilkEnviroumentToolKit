@@ -10,7 +10,7 @@ int main()
 {
 	using namespace battle_system_lib;
 
-	auto p = Charity("Pawn", 10, 5, { 1,5 });
+	auto p = Charity("Pawn", 10, 5, { 1,5 }, 10);
 
 	//p.GetInventoryInstance().PushItem(std::make_shared<ItemEatable>("Apple", "from a tree", 6, 4, 5));
 	//p.GetInventoryInstance().PushItem(std::make_shared<ItemArmor>("Apple", "from a tree", 4, 5));
@@ -30,11 +30,13 @@ int main()
 
 	auto h = hardware_envi_lib::Hardware::GetInstance();
 	h.Read("inventory.dat");
-	
-	auto ic = ItemCompactor();
+
+	auto ic = ItemCompacter();
 	ic.Decrypt(h.GetCompacter());
 
 	p.GetInventoryInstance() = ic.Paste();
 	for (auto& i : p.GetInventoryInstance())
 		std::cout << static_cast<int>(i->GetItemType()) << '\n';
+
+	std::cout << p.GetWeapon()->GetDescription() << '\n';
 }
