@@ -15,7 +15,7 @@ namespace battle_system_lib
 	public:
 		Inventory(uint16_t max_capacity);
 
-		void PushItem(v_Item_p item);
+		void push(v_Item_p item);
 		const size_t size() const;
 		const uint16_t max_capacity() const;
 
@@ -24,7 +24,7 @@ namespace battle_system_lib
 
 		const v_Item_p operator[](size_t index) const;
 
-		void PopItem(size_t index);
-		void PopItem(std::vector<v_Item_p>::const_iterator iter);
+		void pop(size_t index);
+		void pop(std::vector<v_Item_p>::const_iterator iter);
 	};
 }

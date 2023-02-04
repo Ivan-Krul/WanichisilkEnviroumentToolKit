@@ -16,6 +16,9 @@
     <Filter Include="Header Files\Item">
       <UniqueIdentifier>{70a7a7d3-1081-41e6-92a8-e0e120566bcf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ConvertorCompacter">
+      <UniqueIdentifier>{a8fdfb39-e952-475b-a908-e736effd6ef6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Charity.h">
@@ -63,11 +66,14 @@
     <ClInclude Include="ItemWeapon.h">
       <Filter>Header Files\Item</Filter>
     </ClInclude>
-    <ClInclude Include="ItemCompacter.h">
-      <Filter>Header Files\Item</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryCompacter.h">
+      <Filter>Header Files\ConvertorCompacter</Filter>
+    </ClInclude>
+    <ClInclude Include="CharityCompacter.h">
+      <Filter>Header Files\ConvertorCompacter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +89,10 @@
     <ClCompile Include="ItemUpgradablePotion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemCompacter.cpp">
+    <ClCompile Include="InventoryCompacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharityCompacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

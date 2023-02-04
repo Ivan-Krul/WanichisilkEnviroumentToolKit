@@ -40,7 +40,7 @@ namespace hardware_envi_lib
 		auto comp = [=](const float_var& fv) {return fv.name == str_index; };
 		return std::find_if(m_Variables.begin(), m_Variables.end(), comp);
 	}
-	void hardware_envi_lib::Compacter::PushVariable(const DateType date_type, const std::string name, const char* p_ref)
+	void hardware_envi_lib::Compacter::push(const DateType date_type, const std::string name, const char* p_ref)
 	{
 		auto fl_var = float_var();
 		fl_var.date_type = date_type;
@@ -223,7 +223,7 @@ namespace hardware_envi_lib
 		}
 	}
 
-	void Compacter::PopVariable(const std::string str_index)
+	void Compacter::pop(const std::string str_index)
 	{
 		auto comp = [=](const float_var& fv) {return fv.name == str_index; };
 		auto iter = std::find_if(m_Variables.begin(), m_Variables.end(), comp);

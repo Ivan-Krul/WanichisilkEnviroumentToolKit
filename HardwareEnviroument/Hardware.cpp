@@ -105,7 +105,7 @@ Structure:
 			fv.name = f_ReadFromFileString(reader);
 			fv.binary = f_ReadFromFileString(reader);
 
-			m_Compacter.PushVariable(fv.date_type, fv.name, fv.binary.data());
+			m_Compacter.push(fv.date_type, fv.name, fv.binary.data());
 		}
 		reader.close();
 	}

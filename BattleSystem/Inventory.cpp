@@ -7,7 +7,7 @@ namespace battle_system_lib
 		m_MaxCapacity = max_capacity;
 	}
 
-	void Inventory::PushItem(v_Item_p item)
+	void Inventory::push(v_Item_p item)
 	{
 		if(m_MaxCapacity != m_Items_p.size())
 			m_Items_p.push_back(item);
@@ -34,11 +34,11 @@ namespace battle_system_lib
 			? m_Items_p[index]
 			: v_Item_p();
 	}
-	void Inventory::PopItem(size_t index)
+	void Inventory::pop(size_t index)
 	{
 		m_Items_p.erase(m_Items_p.begin() + index);
 	}
-	void Inventory::PopItem(std::vector<v_Item_p>::const_iterator iter)
+	void Inventory::pop(std::vector<v_Item_p>::const_iterator iter)
 	{
 		m_Items_p.erase(iter);
 	}

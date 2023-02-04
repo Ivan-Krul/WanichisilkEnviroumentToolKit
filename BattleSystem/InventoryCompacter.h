@@ -9,7 +9,7 @@
 
 namespace battle_system_lib
 {
-	class ItemCompacter
+	class InventoryCompacter
 	{
 		std::list<v_Item_p> m_Items_p;
 
@@ -24,11 +24,11 @@ namespace battle_system_lib
 		void f_WriteItemWeaponShootable(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const;
 		void f_WriteItemWeaponMelee(hardware_envi_lib::Compacter& compacter, const size_t index, const v_Item_p item_p) const;
 	public:
-		void Decrypt(const hardware_envi_lib::Compacter c);
+		void Decrypt(const hardware_envi_lib::Compacter& c);
 		const hardware_envi_lib::Compacter Encrypt() const;
 
-		void Copy(const Inventory& inv);
-		Inventory Paste() const;
+		void copy(const Inventory& inv);
+		Inventory paste() const;
 
 		size_t size() const;
 

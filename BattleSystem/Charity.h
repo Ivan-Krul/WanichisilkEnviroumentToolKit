@@ -31,7 +31,7 @@ namespace battle_system_lib
 
 		Inventory m_Inventory;
 
-		std::shared_ptr<ItemWeapon> m_Weapon_p; // no abstract instances
+		std::shared_ptr<ItemWeapon> m_Weapon_p;
 		std::array<std::shared_ptr<ItemArmor>, MAX_ARMOR_SLOT> m_Armors_p;
 
 		Dimension m_Dimension;

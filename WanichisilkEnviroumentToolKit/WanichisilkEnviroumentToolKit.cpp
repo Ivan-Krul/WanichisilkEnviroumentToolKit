@@ -5,6 +5,7 @@
 #include "ItemLib.h"
 #include "Charity.h"
 #include "Inventory.h"
+#include "CharityCompacter.h"
 
 int main()
 {
@@ -22,7 +23,7 @@ int main()
 
 	//auto c = ItemCompactor();
 
-	//c.Copy(p.GetInventoryInstance());
+	//c.copy(p.GetInventoryInstance());
 
 	//auto h = hardware_envi_lib::Hardware::GetInstance();
 	//h.GetCompacter() = hardware_envi_lib::Compacter(c.Encrypt());
@@ -31,12 +32,18 @@ int main()
 	auto h = hardware_envi_lib::Hardware::GetInstance();
 	h.Read("inventory.dat");
 
-	auto ic = ItemCompacter();
+	auto ic = InventoryCompacter();
 	ic.Decrypt(h.GetCompacter());
 
-	p.GetInventoryInstance() = ic.Paste();
+	p.GetInventoryInstance() = ic.paste();
 	for (auto& i : p.GetInventoryInstance())
 		std::cout << static_cast<int>(i->GetItemType()) << '\n';
 
 	std::cout << p.GetWeapon()->GetDescription() << '\n';
+
+	auto cc = CharityCompacter();
+
+	h.GetCompacter() = cc.Encrypt(p);
+
+	h.Write("Charity.dat");
 }

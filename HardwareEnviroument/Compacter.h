@@ -34,7 +34,7 @@ namespace hardware_envi_lib
 		std::list<float_var>::const_iterator f_GetFromIndex(const size_t index) const;
 		std::list<float_var>::const_iterator f_GetVar(const std::string str_index) const;
 	public:
-		void PushVariable(const DateType date_type, const std::string name, const char* p_ref);
+		void push(const DateType date_type, const std::string name, const char* p_ref);
 
 		size_t size() const;
 		
@@ -61,7 +61,7 @@ namespace hardware_envi_lib
 		std::string GetProperties(const size_t index);
 		std::string GetProperties(const std::string str_index);
 
-		void PopVariable(const std::string str_index);
+		void pop(const std::string str_index);
 	};
 }
 

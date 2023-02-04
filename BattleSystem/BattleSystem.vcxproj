@@ -132,12 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Charity.h" />
+    <ClInclude Include="CharityCompacter.h" />
     <ClInclude Include="Count.h" />
     <ClInclude Include="Dimension.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemArmor.h" />
-    <ClInclude Include="ItemCompacter.h" />
+    <ClInclude Include="InventoryCompacter.h" />
     <ClInclude Include="ItemDamagablePotion.h" />
     <ClInclude Include="ItemEatable.h" />
     <ClInclude Include="ItemEnumClass.h" />
@@ -151,9 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Charity.cpp" />
+    <ClCompile Include="CharityCompacter.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemCompacter.cpp" />
+    <ClCompile Include="InventoryCompacter.cpp" />
     <ClCompile Include="ItemUpgradablePotion.cpp" />
   </ItemGroup>
   <ItemGroup>
