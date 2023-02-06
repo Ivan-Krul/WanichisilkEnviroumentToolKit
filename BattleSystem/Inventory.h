@@ -24,6 +24,8 @@ namespace battle_system_lib
 
 		const v_Item_p operator[](size_t index) const;
 
+		const uint16_t find(v_Item_p item);
+
 		void pop(size_t index);
 		void pop(std::vector<v_Item_p>::const_iterator iter);
 	};

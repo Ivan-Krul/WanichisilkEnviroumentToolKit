@@ -31,14 +31,15 @@ namespace battle_system_lib
 
 		Inventory m_Inventory;
 
-		std::shared_ptr<ItemWeapon> m_Weapon_p;
-		std::array<std::shared_ptr<ItemArmor>, MAX_ARMOR_SLOT> m_Armors_p;
+		int16_t m_WeaponIndex = -1;
+		std::array<int16_t, MAX_ARMOR_SLOT> m_ArmorIndex;
 
 		Dimension m_Dimension;
 
 	public:
 		Charity(const std::string name, const uint16_t max_productivity, const uint16_t max_force, const Dimension dimension, const uint16_t max_inv_capacity);
-		
+		Charity(Charity&& temp);
+
 		const uint16_t GetCount() const override;
 		const uint16_t GetMaxProductivity() const;
 		const uint16_t GetMaxForce() const;
@@ -48,6 +49,8 @@ namespace battle_system_lib
 		const Dimension GetDimension() const;
 		const std::shared_ptr<ItemWeapon> GetWeapon() const;
 		const std::shared_ptr<ItemArmor> GetArmorSlot(uint16_t index) const;
+		const int16_t GetRawWeaponIndex() const;
+		const int16_t GetRawArmorIndex(uint16_t armor_index) const;
 
 		void SetProductivity(const int16_t new_productivity);
 		void SetForce(const int16_t new_force);

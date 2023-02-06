@@ -34,6 +34,10 @@ namespace battle_system_lib
 			? m_Items_p[index]
 			: v_Item_p();
 	}
+	const uint16_t Inventory::find(v_Item_p item)
+	{
+		return std::find(m_Items_p.begin(), m_Items_p.end(), item) - m_Items_p.begin();
+	}
 	void Inventory::pop(size_t index)
 	{
 		m_Items_p.erase(m_Items_p.begin() + index);

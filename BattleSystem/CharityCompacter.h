@@ -12,6 +12,6 @@ namespace battle_system_lib
 	{
 	public:
 		Charity Decrypt(const hardware_envi_lib::Compacter& comp) const;
-		const hardware_envi_lib::Compacter Encrypt(Charity& charity) const;
+		const hardware_envi_lib::Compacter& Encrypt(Charity& charity) const;
 	};
 }
