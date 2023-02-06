@@ -1,1 +1,0 @@
-ERROR: battle_system_lib::Count::f_Abort: variable s_Count is overflow, too much objects for uint16_t
