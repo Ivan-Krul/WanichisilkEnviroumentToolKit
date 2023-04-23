@@ -197,9 +197,6 @@
     <ClCompile Include="WanichisilkEnviroumentToolKit.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BattleSystem\BattleSystem.vcxproj">
-      <Project>{dea221ab-da5b-4be2-aa00-9cf74b4e6669}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\HardwareEnviroument\HardwareEnviroument.vcxproj">
       <Project>{89760d1f-4d76-455c-9873-13e35df55b7f}</Project>
     </ProjectReference>
