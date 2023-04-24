@@ -56,17 +56,17 @@ namespace hardware_envi_lib
 		m_Variables.push_back(fl_var);
 	}
 
-	size_t Compacter::size() const
+	size_t Compacter::size() const noexcept
 	{
 		return m_Variables.size();
 	}
 
-	std::list<float_var>::const_iterator Compacter::begin() const
+	std::list<float_var>::const_iterator Compacter::begin() const noexcept
 	{
 		return m_Variables.begin();
 	}
 
-	std::list<float_var>::const_iterator Compacter::end() const
+	std::list<float_var>::const_iterator Compacter::end() const noexcept
 	{
 		return m_Variables.end();
 	}
