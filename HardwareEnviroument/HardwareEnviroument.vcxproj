@@ -184,10 +184,13 @@
   <ItemGroup>
     <ClInclude Include="Compacter.h" />
     <ClInclude Include="Hardware.h" />
+    <ClInclude Include="ILogMachine.h" />
+    <ClInclude Include="LogMachineFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Compacter.cpp" />
     <ClCompile Include="Hardware.cpp" />
+    <ClCompile Include="LogMachineFile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

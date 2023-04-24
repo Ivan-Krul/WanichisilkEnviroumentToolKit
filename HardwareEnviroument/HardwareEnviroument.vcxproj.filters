@@ -21,12 +21,21 @@
     <ClInclude Include="Compacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ILogMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogMachineFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hardware.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Compacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogMachineFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

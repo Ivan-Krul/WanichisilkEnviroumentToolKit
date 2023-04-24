@@ -97,18 +97,36 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CodeAnalysisRuleSet>CppCoreCheckClassRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,14 +137,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -135,12 +153,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
@@ -149,12 +167,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -165,14 +183,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -183,14 +201,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)BattleSystem;$(SolutionDir)HardwareEnviroument</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)HardwareEnviroument;$(SolutionDir)SystemManager</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)BattleSystem.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)$(IntermediateOutputPath)HardwareEnviroument.lib;$(SolutionDir)$(IntermediateOutputPath)SystemManager.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

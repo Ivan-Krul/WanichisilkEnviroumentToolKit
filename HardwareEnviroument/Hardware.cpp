@@ -95,7 +95,7 @@ Structure:
 		auto size = f_ReadFromFileSize(reader);
 		auto fv = float_var();
 
-		m_Compacter.clear();
+		m_Compacter.Clear();
 
 		for (size_t c = 0; c < size; c++)
 		{
@@ -105,7 +105,7 @@ Structure:
 			fv.name = f_ReadFromFileString(reader);
 			fv.binary = f_ReadFromFileString(reader);
 
-			m_Compacter.push(fv.date_type, fv.name, fv.binary.data());
+			m_Compacter.Push(fv.date_type, fv.name, fv.binary.data());
 		}
 		reader.close();
 	}
@@ -126,7 +126,7 @@ Structure:
 
 	void Hardware::WriteAbortLine(const std::string where, const std::string message)
 	{
-		auto writer = std::ofstream(message);
+		auto writer = std::ofstream(where);
 		
 		writer.seekp(0, std::ios_base::end);
 		writer << "ERROR: " << where << ": " << message << '\n';
