@@ -1,7 +1,8 @@
 #pragma once
-#include <list>
-
 #include "ILogMachine.h"
+
+#include <list>
+#include <chrono>
 
 namespace hardware_envi_lib
 {
@@ -23,10 +24,14 @@ namespace hardware_envi_lib
 	private:
 		template<typename T>
 		void f_WriteAnyLogWithArgument(const char* pFunction_name, const std::string& message, T argument);
+		float f_UpdateElapsedTime();
+
 
 		std::list<std::string> m_Logs;
 		std::string m_Path;
 		bool m_NeedBinary = false;
+
+		std::chrono::high_resolution_clock::time_point m_TimePointLastLog = std::chrono::high_resolution_clock::now();
 
 		const std::string c_LogFormat = ":\t";
 	};

@@ -1,7 +1,6 @@
 #include "LogMachineFile.h"
 
 #include <fstream>
-#include <chrono>
 
 namespace hardware_envi_lib
 {
@@ -14,6 +13,8 @@ namespace hardware_envi_lib
 #pragma warning(disable : 4996)
 		char* dt = ctime(&now);
 
+		m_Path += ".log";
+
 		std::string init_log = "Init was" + c_LogFormat + dt;
 		init_log.erase((init_log.end()-1));
 
@@ -25,7 +26,7 @@ namespace hardware_envi_lib
 		std::string log;
 
 		log = pFunction_name;
-		log += c_LogFormat + message;
+		log += c_LogFormat + std::to_string(f_UpdateElapsedTime()) + " ms" + c_LogFormat + message;
 		
 		m_Logs.push_back(log);
 	}
@@ -63,13 +64,21 @@ namespace hardware_envi_lib
 		fout.close();
 	}
 
+	float LogMachineFile::f_UpdateElapsedTime()
+	{
+		auto new_now = std::chrono::high_resolution_clock::now();
+		size_t time_count = std::chrono::duration_cast<std::chrono::nanoseconds>(new_now - m_TimePointLastLog).count();
+		m_TimePointLastLog = new_now;
+		return float(time_count) / 10e5;
+	}
+
 	template<typename T>
 	void LogMachineFile::f_WriteAnyLogWithArgument(const char* pFunction_name, const std::string& message, T argument)
 	{
 		std::string log;
 
 		log = pFunction_name;
-		log += c_LogFormat + message + c_LogFormat + std::to_string(argument);
+		log += c_LogFormat + std::to_string(f_UpdateElapsedTime()) + "ms" + c_LogFormat + message + c_LogFormat + std::to_string(argument);
 
 		if (m_NeedBinary)
 		{
